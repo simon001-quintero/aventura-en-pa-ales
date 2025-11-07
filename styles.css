@@ -1,163 +1,139 @@
-/* styles.css
-   Paleta: azules/grises/blancos suaves
-*/
-:root{
-  --bg-white: #f7fbff;
-  --soft-blue: #6ea8ff;   /* botón / acentos */
-  --muted-blue: #9ec1ff;  /* hover / suaves */
-  --soft-gray: #edf1f5;   /* tarjetas / fondos */
-  --mid-gray: #9aa6b2;    /* texto secundario */
-  --text-color: #203243;  /* texto principal */
-  --accent: #497fcf;      /* color para outlines y bordes */
+body {
+  background-color: #f4f8fc; /* Blanco azulado suave */
+  color: #2c3e50; /* Gris oscuro elegante */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Reset visual ligero */
-body{
-  background: var(--bg-white);
-  color: var(--text-color);
-  font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
-}
-
-/* Contenedores y estructura */
-.container, .row {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Encabezados */
 h1, h2, h3, h4, h5 {
-  color: var(--text-color);
+  color: #1a3c6e; /* Azul principal */
   font-weight: 600;
-  margin-bottom: .6rem;
 }
 
-h1 { font-size: 2rem; }
-h3 { font-size: 1.35rem; }
 
-/* Tarjetas */
+p {
+  color: #34495e;
+  line-height: 1.6;
+}
+
+
+.container {
+  max-width: 1200px;
+}
+
 .card {
-  background: linear-gradient(180deg, #ffffff 0%, var(--soft-gray) 100%);
-  border: 1px solid rgba(73,127,207,0.12);
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(32,50,67,0.04);
-  transition: transform .18s ease, box-shadow .18s ease;
+  background-color: #ffffff;
+  border: 1px solid #dce3ec;
+  border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(32,50,67,0.06);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 50, 0.1);
 }
-.card .card-body { padding: 1.25rem; }
 
-/* Botones */
-.btn-primary, .btn-primary:focus {
-  background-color: var(--soft-blue);
-  border-color: var(--accent);
-  color: white;
-  box-shadow: none;
+.card-title {
+  color: #1a3c6e;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+
+.btn {
   border-radius: 8px;
-  padding: .55rem .9rem;
-}
-.btn-primary:hover {
-  background-color: var(--muted-blue);
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
-
-/* outline buttons (adaptamos los existentes en tus links) */
-.btn-outline-primary {
-  color: var(--accent);
-  border: 1px solid rgba(73,127,207,0.35);
-  background: transparent;
-  border-radius: 8px;
-  padding: .45rem .7rem;
-}
-.btn-outline-primary:hover {
-  background: rgba(110,168,255,0.08);
-  color: var(--text-color);
-  border-color: var(--accent);
-}
-
-/* Formularios */
-.form-control {
-  border-radius: 10px;
-  border: 1px solid rgba(32,50,67,0.08);
-  background: #ffffff;
-  padding: .6rem .75rem;
-  box-shadow: none;
-  transition: border-color .14s ease, box-shadow .14s ease;
-}
-.form-control:focus {
-  border-color: var(--accent);
-  box-shadow: 0 4px 14px rgba(73,127,207,0.06);
-  outline: none;
-}
-
-/* Texto de ayuda y subtítulos */
-.small, .form-text {
-  color: var(--mid-gray);
-}
-
-/* Alertas (formulario usa alert-success/alert-danger) */
-.alert {
-  border-radius: 10px;
-  padding: .65rem 1rem;
   font-weight: 500;
-}
-.alert-success {
-  background: linear-gradient(90deg, rgba(110,168,255,0.06), rgba(255,255,255,0.02));
-  color: #0b5d9a;
-  border: 1px solid rgba(73,127,207,0.08);
-}
-.alert-danger {
-  background: #fff6f7;
-  color: #7a1f1f;
-  border: 1px solid rgba(122,31,31,0.06);
+  transition: all 0.2s ease;
 }
 
-/* Footer */
+
+.btn-outline-primary {
+  border-color: #3a7bd5;
+  color: #3a7bd5;
+}
+
+.btn-outline-primary:hover {
+  background-color: #3a7bd5;
+  color: white;
+}
+
+
+.btn-outline-success {
+  border-color: #3cb371;
+  color: #3cb371;
+}
+
+.btn-outline-success:hover {
+  background-color: #3cb371;
+  color: white;
+}
+
+
+.btn-outline-warning {
+  border-color: #f4c542;
+  color: #b48b00;
+}
+
+.btn-outline-warning:hover {
+  background-color: #f4c542;
+  color: white;
+}
+
+
+.btn-outline-info {
+  border-color: #5dade2;
+  color: #3a7bd5;
+}
+
+.btn-outline-info:hover {
+  background-color: #5dade2;
+  color: white;
+}
+
+
+.btn-outline-danger {
+  border-color: #e74c3c;
+  color: #c0392b;
+}
+
+.btn-outline-danger:hover {
+  background-color: #e74c3c;
+  color: white;
+}
+
+
 footer {
-  color: var(--mid-gray);
-  margin-top: 2.2rem;
-  padding: 1.4rem 0;
-  font-size: .95rem;
+  background-color: #d4dce8;
+  color: #ffffff;
+  padding: 15px 0;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
-/* Enlaces dentro de tarjetas/sections */
-a {
-  color: var(--accent);
+footer a {
+  color: #a5c3f2;
   text-decoration: none;
 }
-a:hover { text-decoration: underline; }
 
-/* Ajustes de botones por bloque (d-grid) */
-.d-grid .btn {
-  border-radius: 10px;
-  margin-bottom: .45rem;
+footer a:hover {
+  color: white;
 }
 
-/* Ajustes específicos para proyectos.html: títulos de card */
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  font-size: 1.05rem;
+
+hr {
+  border: 0;
+  border-top: 1px solid #cfd9e6;
+  margin: 30px 0;
 }
 
-/* Responsividad (ligera) */
-@media (max-width: 576px) {
-  h1 { font-size: 1.5rem; }
-  .card { border-radius: 10px; }
-  .btn { width: 100%; }
-}
 
-/* Toques finales: inputs tipo file / focus states accesibles */
-input[type="submit"], button[type="submit"] {
-  cursor: pointer;
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
 }
-
-/* Optional: smooth transition global */
-* { transition: color .12s ease, background-color .12s ease, border-color .12s ease; }
