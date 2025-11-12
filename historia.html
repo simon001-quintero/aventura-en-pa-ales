@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Testimonios de Aprendizaje</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <style>
+        :root{
+            --blue-dark: #1e3a8a;
+            --blue-primary: #2563eb;
+            --blue-light: #60a5fa;
+            --blue-accent: #3b82f6;
+            --gray-dark: #1f2937;
+            --gray-medium: #6b7280;
+            --gray-light: #e5e7eb;
+            --white: #ffffff;
+            --off-white: #f9fafb;
+        }
+
+        body{
+            min-height:100vh;
+            margin:0;
+            font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            color: var(--gray-dark);
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #cbd5e1 100%);
+            padding-top:3rem;
+            padding-bottom:3rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wrap {
+            max-width:900px;
+            margin:0 auto;
+            padding:1rem;
+            position:relative;
+            z-index:1;
+        }
+
+        .hero{
+            text-align:center;
+            margin-bottom:2.5rem;
+            position:relative;
+            padding: 2rem 1rem;
+        }
+        
+        .hero h1{
+            font-weight:800;
+            font-size:2.5rem;
+            letter-spacing:-0.02em;
+            margin-bottom:1rem;
+            background: linear-gradient(135deg, var(--blue-accent) 0%, var(--blue-primary) 50%, var(--blue-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--blue-primary), transparent);
+            border-radius: 2px;
+        }
+        
+        .hero p{
+            margin:0;
+            color: var(--gray-medium);
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .controls {
+            display:flex;
+            gap:1rem;
+            flex-wrap:wrap;
+            justify-content: center;
+        }
+        
+        .btn{
+            font-weight:600;
+            border-radius:12px;
+            padding:.75rem 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-accent{
+            background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-accent) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-accent:hover {
+            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-primary{
+            background: var(--white);
+            border: 2px solid var(--blue-primary);
+            color: var(--blue-primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--blue-primary);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-secondary{
+            background: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-medium) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(31, 41, 55, 0.2);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 6px 25px rgba(31, 41, 55, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn:active { 
+            transform: translateY(0) scale(0.98); 
+        }
+
+        .spacer {
+            height: 1.5rem;
+        }
+
+        .card.custom{
+            border-radius:16px;
+            border: 2px solid rgba(37, 99, 235, 0.1);
+            background: var(--white);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            overflow:hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position:relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .card.custom::before{
+            content:"";
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            height:4px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--blue-light), var(--blue-accent));
+            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .card.custom::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card.custom:hover::after {
+            opacity: 1;
+        }
+        
+        .card-body{
+            padding:2rem;
+            line-height:1.7;
+            color: var(--gray-dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-body h5 {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--blue-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .card-body h5::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--blue-primary);
+            border-radius: 2px;
+        }
+
+        .card-body p {
+            font-size: 1.05rem;
+            color: var(--gray-medium);
+            line-height: 1.8;
+        }
+
+        .collapse.show .card.custom { 
+            transform: translateY(-8px) scale(1.01); 
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+        }
+
+        .card.custom.active-testimony {
+            animation: gentlePulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes gentlePulse {
+            from { 
+                box-shadow: 0 12px 45px rgba(37, 99, 235, 0.12);
+                transform: translateY(-6px);
+            }
+            to { 
+                box-shadow: 0 18px 65px rgba(59, 130, 246, 0.18);
+                transform: translateY(-10px) scale(1.005);
+            }
+        }
+
+        .wave-effect {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 70%);
+            animation: waveExpand 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes waveExpand {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 600px;
+                height: 600px;
+                opacity: 0;
+            }
+        }
+
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: particleFloat 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0);
+            }
+        }
+
+        @media (max-width:768px){
+            .controls { 
+                width:100%; 
+                flex-direction: column;
+            }
+            .controls .btn { 
+                width:100%; 
+            }
+            .hero h1 { 
+                font-size:1.8rem; 
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .card-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            // Crear efecto de onda al hacer clic
+            function createWaveEffect(x, y) {
+                const wave = document.createElement('div');
+                wave.className = 'wave-effect';
+                wave.style.left = (x - 300) + 'px';
+                wave.style.top = (y - 300) + 'px';
+                document.body.appendChild(wave);
+                
+                setTimeout(() => wave.remove(), 1000);
+            }
+
+            // Crear partículas flotantes
+            function createParticles(x, y, count = 8) {
+                const colors = ['#2563eb', '#3b82f6', '#60a5fa'];
+                
+                for(let i = 0; i < count; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    
+                    const angle = (Math.PI * 2 * i) / count;
+                    const distance = 80 + Math.random() * 40;
+                    const tx = Math.cos(angle) * distance;
+                    const ty = Math.sin(angle) * distance;
+                    
+                    particle.style.left = x + 'px';
+                    particle.style.top = y + 'px';
+                    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.setProperty('--tx', tx + 'px');
+                    particle.style.setProperty('--ty', ty + 'px');
+                    
+                    document.body.appendChild(particle);
+                    
+                    setTimeout(() => particle.remove(), 1200);
+                }
+            }
+
+            // Añadir efectos a los botones
+            const triggers = document.querySelectorAll('[data-bs-toggle="collapse"]');
+            triggers.forEach(function(btn){
+                // Añadir span para el efecto de hover
+                const text = btn.textContent;
+                btn.innerHTML = '<span>' + text + '</span>';
+
+                btn.addEventListener('click', function(e){
+                    const rect = btn.getBoundingClientRect();
+                    const x = rect.left + rect.width / 2;
+                    const y = rect.top + rect.height / 2;
+                    
+                    createWaveEffect(x, y);
+                    createParticles(x, y, 12);
+                });
+            });
+
+            // Gestionar estado activo de las tarjetas
+            const collapses = document.querySelectorAll('.collapse');
+            collapses.forEach(function(c){
+                c.addEventListener('show.bs.collapse', function(){
+                    const card = c.querySelector('.card.custom');
+                    if(card) {
+                        setTimeout(() => {
+                            card.classList.add('active-testimony');
+                        }, 100);
+                    }
+                });
+                
+                c.addEventListener('hide.bs.collapse', function(){
+                    const card = c.querySelector('.card.custom');
+                    if(card) {
+                        card.classList.remove('active-testimony');
+                    }
+                });
+            });
+
+            // Efecto parallax suave en scroll
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        const scrolled = window.pageYOffset;
+                        const hero = document.querySelector('.hero');
+                        if(hero) {
+                            hero.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
+                            hero.style.opacity = 1 - (scrolled * 0.003);
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="hero">
+            <h1>Historias de Transformación</h1>
+            <p>Descubre cómo el aprendizaje cambió sus vidas. Cada testimonio es una prueba de que todo es posible con dedicación.</p>
+        </div>
+
+        <div class="d-flex justify-content-center mb-4">
+            <div class="controls">
+                <button class="btn btn-accent" data-bs-toggle="collapse" data-bs-target="#collapseTestimony1" aria-expanded="false" aria-controls="collapseTestimony1">
+                    Del Caos a la Claridad
+                </button>
+
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTestimony2" aria-expanded="false" aria-controls="collapseTestimony2">
+                    El Poder de Crear
+                </button>
+
+                <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTestimony3" aria-expanded="false" aria-controls="collapseTestimony3">
+                    De Difícil a Divertido
+                </button>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="collapse" id="collapseTestimony1">
+            <div class="card custom">
+                <div class="card-body">
+                    <h5>Del Caos a la Claridad</h5>
+                    <p>"Al inicio fue algo enredado cuando comenzamos con los conceptos básicos pero con las clases y la práctica todo fue avanzando. Esencialmente me gustó CSS ya que es lo que permite por ejemplo darle estilo y un buen diseño a una página. Aquellos lenguajes de programación tienen una increíble estructura muy lógica que permite crear hasta lo inimaginable; con el tiempo creé una propia página y aprendí muchas cosas de memoria. La programación es todo un desafío, ¡Buena suerte!"</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="collapse" id="collapseTestimony2">
+            <div class="card custom">
+                <div class="card-body">
+                    <h5>El Poder de Crear — Mariana</h5>
+                    <p>"Cuando empecé no sabía nada de diseño web. Con HTML y CSS aprendí a crear mi primera página desde cero. Ver cómo cobraba forma fue increíble, y ahora puedo construir sitios completos con buen estilo y estructura."</p>
+                    <p>"Aprendí Python para automatizar tareas simples en mi trabajo, como organizar archivos. Sin darme cuenta, terminé creando pequeños programas que ahorran horas de trabajo. Me abrió el camino hacia la programación profesional."</p>
+                    <p>"Después de entender HTML y CSS, me animé con JavaScript. Al principio fue difícil, pero cuando logré que mi página respondiera a los clics y tuviera animaciones, me di cuenta de que podía crear aplicaciones completas por mí mismo."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="collapse" id="collapseTestimony3">
+            <div class="card custom">
+                <div class="card-body">
+                    <h5>De Difícil a Divertido</h5>
+                    <p>"Al principio, fue un poco difícil entender cómo funcionaba todo. Sin embargo, después de un tiempo, logré captar la lógica detrás de cada concepto. Con la práctica, se volvió más fácil y, lo más importante, ¡divertido! Aprender se transformó en una experiencia gratificante, llena de descubrimientos y retos que disfruté superar."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
