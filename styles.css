@@ -1,139 +1,139 @@
+/* Estilos generales */
 body {
-  background-color: #f4f8fc; /* Blanco azulado suave */
-  color: #2c3e50; /* Gris oscuro elegante */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
+    background-color: #f8f9fa;
 }
 
-h1, h2, h3, h4, h5 {
-  color: #1a3c6e; /* Azul principal */
-  font-weight: 600;
+/* Estilos para el banner */
+.banner-carousel {
+    position: relative;
+    margin-bottom: 2rem;
+    overflow: hidden;
 }
 
-
-p {
-  color: #34495e;
-  line-height: 1.6;
+.banner-image-container {
+    width: 100%;
+    height: 70vh;
+    min-height: 400px;
+    max-height: 800px;
+    overflow: hidden;
 }
 
-
-.container {
-  max-width: 1200px;
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease-in-out;
 }
 
+.carousel-item:hover .banner-image {
+    transform: scale(1.05);
+}
+
+.carousel-caption {
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 4rem 2rem 2rem;
+    text-align: center;
+}
+
+/* Estilos para las cards */
 .card {
-  background-color: #ffffff;
-  border: 1px solid #dce3ec;
-  border-radius: 15px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 50, 0.1);
+    transform: translateY(-5px);
 }
 
+.card.bg-primary {
+    background: linear-gradient(135deg, #0d6efd, #0a58ca) !important;
+}
+
+.card .card-footer {
+    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    border: none;
+    padding: 1rem;
+    color: white;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Efectos de texto */
 .card-title {
-  color: #1a3c6e;
-  text-align: center;
-  margin-bottom: 15px;
+    color: #0d6efd;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 }
 
-
-.btn {
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.2s ease;
+.card.bg-primary .card-title {
+    color: white;
 }
 
-
-.btn-outline-primary {
-  border-color: #3a7bd5;
-  color: #3a7bd5;
+.text-secondary {
+    color: #6c757d !important;
 }
 
-.btn-outline-primary:hover {
-  background-color: #3a7bd5;
-  color: white;
+/* Sombras y efectos */
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
 }
 
-
-.btn-outline-success {
-  border-color: #3cb371;
-  color: #3cb371;
+/* Controles del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.btn-outline-success:hover {
-  background-color: #3cb371;
-  color: white;
+.banner-carousel:hover .carousel-control-prev,
+.banner-carousel:hover .carousel-control-next {
+    opacity: 0.8;
 }
 
-
-.btn-outline-warning {
-  border-color: #f4c542;
-  color: #b48b00;
+.carousel-indicators {
+    margin-bottom: 1.5rem;
 }
 
-.btn-outline-warning:hover {
-  background-color: #f4c542;
-  color: white;
+.carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 6px;
+    background-color: rgba(255,255,255,0.7);
+    border: 2px solid rgba(255,255,255,0.9);
+    transition: all 0.3s ease;
 }
 
-
-.btn-outline-info {
-  border-color: #5dade2;
-  color: #3a7bd5;
+/* Efectos de hover */
+.card:hover .card-footer {
+    background: linear-gradient(135deg, #0a58ca, #084298);
 }
 
-.btn-outline-info:hover {
-  background-color: #5dade2;
-  color: white;
+/* Iconos */
+.fas {
+    margin-right: 0.5rem;
 }
 
-
-.btn-outline-danger {
-  border-color: #e74c3c;
-  color: #c0392b;
+/* Estilos del footer */
+.footer {
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    padding: 1rem 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
 }
 
-.btn-outline-danger:hover {
-  background-color: #e74c3c;
-  color: white;
-}
-
-
-footer {
-  background-color: #d4dce8;
-  color: #ffffff;
-  padding: 15px 0;
-  margin-top: 50px;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-footer a {
-  color: #a5c3f2;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: white;
-}
-
-
-hr {
-  border: 0;
-  border-top: 1px solid #cfd9e6;
-  margin: 30px 0;
-}
-
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-  .card {
-    margin-bottom: 20px;
-  }
+.footer p {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
 }
